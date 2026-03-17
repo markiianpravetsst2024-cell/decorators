@@ -15,4 +15,9 @@ def transform_and_filter(values: list[int], transform, predicate) -> list[int]:
         >>> transform_and_filter([1, 2, 3, 4], lambda x: x * 2, lambda x: x > 4)
         [6, 8]
     """
-    raise NotImplementedError
+    result = []
+    for x in values:
+        new_element = transform(x)
+        if predicate(new_element):
+            result.append(new_element)
+    return result

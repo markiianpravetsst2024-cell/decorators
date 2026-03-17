@@ -23,4 +23,10 @@ def make_counter(start: int = 0):
         >>> counter2()
         'ID-11'
     """
-    raise NotImplementedError
+    def counter():
+        nonlocal start
+        start +=1
+        return f"{DEFAULT_PREFIX}-{start}"
+    return counter
+
+

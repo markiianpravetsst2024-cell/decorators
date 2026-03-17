@@ -9,7 +9,12 @@ def double_result(func):
         >>> add(2, 3)
         10
     """
-    raise NotImplementedError
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        result *= 2
+        return result
+    return wrapper
+
 
 
 def repeat(times: int):
@@ -35,4 +40,13 @@ def repeat(times: int):
         >>> greet("Ada")
         ['Hello, Ada!', 'Hello, Ada!']
     """
-    raise NotImplementedError
+
+
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+
+            return [func(*args, **kwargs) for i in range(times)]
+
+        return wrapper
+
+    return decorator

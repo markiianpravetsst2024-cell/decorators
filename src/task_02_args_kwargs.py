@@ -10,7 +10,11 @@ def sum_only_ints(*args) -> int:
         >>> sum_only_ints(1, "a", 2, 3.5, True, 4)
         7
     """
-    raise NotImplementedError
+    total = 0
+    for arg in args:
+        if type(arg) == int :
+            total += arg
+    return total
 
 
 def build_user_profile(**kwargs) -> dict:
@@ -21,4 +25,8 @@ def build_user_profile(**kwargs) -> dict:
         >>> build_user_profile(name="Anna", age=20, city=None)
         {'name': 'Anna', 'age': 20}
     """
-    raise NotImplementedError
+    result = {}
+    for key, value in kwargs.items():
+        if value != None:
+             result[key] = value
+    return result

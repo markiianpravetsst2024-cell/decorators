@@ -17,4 +17,6 @@ def split_first_last(values: list[int]) -> tuple[int, list[int], int]:
         >>> split_first_last([1, 2])
         (1, [], 2)
     """
-    raise NotImplementedError
+    first, *middle, last = values
+    return first, middle, last
+
